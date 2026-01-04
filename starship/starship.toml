@@ -1,0 +1,47 @@
+# Starship Configuration - Minimal
+# Docs: https://starship.rs/config/
+
+# Wait 10ms for starship to check files
+scan_timeout = 10
+
+# Don't add blank line between commands
+add_newline = false
+
+# Prompt format (minimal)
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+# Directory
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+# Git branch
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "[$symbol$branch]($style) "
+
+# Git status
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold red"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+# Prompt character
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
