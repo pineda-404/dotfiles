@@ -1,0 +1,14 @@
+[user]
+	email = pineda.garcia.404@gmail.com
+	name = Diego Pineda
+	signingkey = D6DEA6F028E06726
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[merge]
+	tool = vimdiff
+[mergetool "vimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[url "git@github.com:"]
+	insteadOf = https://github.com/
