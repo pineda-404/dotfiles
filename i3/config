@@ -1,0 +1,145 @@
+# ===================================================================
+# i3 Configuración Limpia para Pineda
+# v1.2
+# ===================================================================
+
+# --- Variables Principales ---
+set $mod Mod4
+set $terminal ghostty
+set $browser zen-browser
+
+# --- Fuentes ---
+font pango:JetBrainsMono Nerd Font 10
+
+# --- Programas de Arranque (Autostart) ---
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh 
+# Iniciar el applet de Bluetooth al arrancar
+exec --no-startup-id blueman-applet
+# exec --no-startup-id picom &
+exec --no-startup-id feh --bg-scale /home/pineda/Pictures/ParedDePapel/esteEs.jpg
+exec --no-startup-id nm-applet
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# MANEJO DE TILDES y mas caracteres
+# Supuestamente con la linea de abajo puedo usar la enhe y las tildes
+# No me funciona porque no tengo la tecla AltGr, quizas me funcione en la laptop, habra que probar luego
+#exec --no-startup-id setxkbmap -layout us -variant altgr-intl
+
+# Esta es la solucion para poder tener tildes, ¿ y ñ
+exec --no-startup-id setxkbmap -layout us -option compose:rctrl
+
+
+# ===================================================================
+# Atajos de Teclado (Keybindings)
+# ===================================================================
+
+# --- Aplicaciones Esenciales ---
+bindsym $mod+Return exec $terminal
+bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+e exec nautilus
+bindsym $mod+b exec $browser
+
+# --- Gestión de Ventanas ---
+bindsym $mod+Shift+q kill
+
+# Cambiar foco (estilo Vim)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover ventana con foco
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# --- Layouts de Contenedores ---
+bindsym $mod+v split h
+bindsym $mod+f fullscreen toggle
+bindsym $mod+w layout tabbed
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+e layout toggle split
+
+# --- Modo Flotante ---
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# --- Capturas de Pantalla (solo flameshot) ---
+bindsym $mod+Print exec flameshot gui
+bindsym $mod+s exec flameshot gui
+
+# --- Control de Audio ---
+
+# Subir volumen
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+
+# Bajar volumen
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+
+# Mute
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+
+# Comentado para que no me salga la barra ploma para el volumen
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5 && dunstify -h string:x-dunst-stack-tag:volume -u low "Volumen: $(pamixer --get-volume)%"
+#bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5 && dunstify -h string:x-dunst-stack-tag:volume -u low "Volumen: $(pamixer --get-volume)%"
+#bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute && dunstify -h string:x-dunst-stack-tag:volume -u low "Mute: $(pamixer --get-mute)"
+
+# --- Workspaces ---
+
+# set $ws1 "1 "
+# set $ws2 "2 "
+# set $ws3 "3 "
+# set $ws4 "4 "
+# set $ws5 "5 "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+
+# --- Gestión de i3 ---
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m '¿Salir de i3?' -B 'Sí' 'i3-msg exit'"
+
+# --- Atajo para reconfigurar teclado y habilitar Ñ ---
+# Configurar luego. Probar si funciona en la laptop
+# bindsym $mod+Shift+n exec setxkbmap -layout us -variant altgr-intl
+
+# --- Modo Redimensionar ---
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# --- Power Management ---
+# Tengo que solucionar este conflicto y darle una combinacion de teclas para hacer
+# de pantalla
+# bindsym $mod+Shift+l exec i3lock -c 000000
+bindsym $mod+Shift+o exec "systemctl poweroff"
+bindsym $mod+Shift+u exec "systemctl suspend"
+
+# --- Ventanas sin título ni bordes ---
+for_window [class=".*"] border pixel 0
+new_window pixel 0
+new_float pixel 0
+
