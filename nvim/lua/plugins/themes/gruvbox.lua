@@ -17,7 +17,7 @@ return {
     vim.g.gruvbox_material_transparent_background = 2
 
     -- Para activar gruvbox, DESCOMENTA la siguiente línea y COMENTA la del otro tema
-    vim.cmd.colorscheme 'gruvbox-material'
+    -- vim.cmd.colorscheme 'gruvbox-material'
 
     local toggle_transparency = function()
       if vim.g.gruvbox_material_transparent_background == 0 then
