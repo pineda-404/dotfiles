@@ -92,3 +92,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Starship Prompt (must be last)
 # ============================================
 eval "$(starship init zsh)"
+
+# opencode
+export PATH=/home/pineda/.opencode/bin:$PATH
