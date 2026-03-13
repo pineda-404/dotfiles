@@ -1,24 +1,35 @@
 return {
-  'goolord/alpha-nvim',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
+	"goolord/alpha-nvim",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 
-  config = function()
-    local alpha = require 'alpha'
-    local dashboard = require 'alpha.themes.startify'
+	config = function()
+		local alpha = require("alpha")
+		local dashboard = require("alpha.themes.dashboard")
 
-    dashboard.section.header.val = {
-      [[                                                    ]],
-      [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
-      [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
-      [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
-      [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
-      [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
-      [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
-      [[                                                    ]],
-    }
+		-- 1. Tu Arte ASCII centrado
+		dashboard.section.header.val = {
+			[[                                                    ]],
+			[[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
+			[[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
+			[[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
+			[[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
+			[[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
+			[[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
+			[[                                                    ]],
+		}
 
-    alpha.setup(dashboard.opts)
-  end,
+		-- 2. Tus botones reales y funcionales
+		dashboard.section.buttons.val = {
+			dashboard.button("f", "  Buscar archivo", "<cmd>Telescope find_files<CR>"),
+			dashboard.button("e", "  Nuevo archivo", "<cmd>ene <CR>"),
+			dashboard.button("r", "  Archivos recientes", "<cmd>Telescope oldfiles<CR>"),
+			dashboard.button("g", "  Buscar texto", "<cmd>Telescope live_grep<CR>"),
+			dashboard.button("c", "  Configuración", "<cmd>e ~/.config/nvim/init.lua<CR>"),
+			dashboard.button("q", "󰅙  Salir de Neovim", "<cmd>qa<CR>"),
+		}
+
+		alpha.setup(dashboard.config)
+	end,
 }
