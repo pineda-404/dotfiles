@@ -2,7 +2,7 @@
 # PATH Configuration
 # ============================================
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 # ============================================
 # History Configuration
@@ -64,7 +64,7 @@ eval "$(zoxide init zsh)"
 alias y="yazi"
 alias pdf="zathura"
 alias v="nvim"
-alias bat="batcat"
+
 
 # ls improvements (if eza is installed)
 if command -v eza &> /dev/null; then

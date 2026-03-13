@@ -1,0 +1,103 @@
+
+# Font 
+
+font-feature = -liga
+# font-family = Hack Nerd Font 
+font-family = 
+font-size = 14
+
+# Background options
+#background-opacity = 
+#minimum-contrast = 4
+# minimum-contrast = 
+
+# Configuracion de Ventanas y tabs
+window-theme = ghostty
+# window-titlebar-background = #000000
+#title = ""
+window-decoration = none
+# gtk-tabs-location = top
+# adw-toolbar-style = raised
+
+
+###Keybinds
+
+# Usar Ctrl+Shift+R para un nuevo split a la derecha (R de Right)
+keybind = ctrl+shift+r=new_split:right
+
+
+# --- Para navegar entre splits usando Alt + H, J, K, L (estilo Vim) ---
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+l=goto_split:right
+
+# --- Configuracion del Theme ---
+# theme = "GitHub-Dark-Default"
+# theme = "gruber darker"
+# theme = "miasma"
+# theme = "GitHub Dark"
+# theme = Kanagawa Wave
+# theme = Kanagawa Dragon 
+
+### Con Ryuuko no se ve una mrd haciendo ls
+# theme = Ryuuko 
+# theme = rose pine
+# theme = Rose Pine Moon
+# theme = SoftServer 
+# theme = Gruvbox Dark Hard
+# theme = Gruvbox Dark 
+# theme = Gruvbox Material Dark 
+# theme = Flexoki Dark
+# theme = Ghostty Default Style Dark
+# theme = Everforest Dark Hard
+#----------------------
+#----------------------
+
+# Obsidian Minimal (custom theme - based on Kepano's Minimal for Obsidian)
+palette = 0=#1a1a1a
+palette = 1=#d04255
+palette = 2=#a8c373
+palette = 3=#e5b567
+palette = 4=#6c99bb
+palette = 5=#b05279
+palette = 6=#9e86c8
+palette = 7=#d2d2d2
+palette = 8=#595959
+palette = 9=#d04255
+palette = 10=#a8c373
+palette = 11=#e5b567
+palette = 12=#6c99bb
+palette = 13=#9e86c8
+palette = 14=#73bbb2
+palette = 15=#ffffff
+
+background = #1a1a1a
+foreground = #d2d2d2
+cursor-color = #d2d2d2
+selection-background = #404040
+selection-foreground = #d2d2d2
+#----------------------
+
+# # Gruvbox Dark Hard con fondo negro
+# palette = 1=#cc241d
+# palette = 2=#98971a
+# palette = 3=#d79921
+# palette = 4=#458588
+# palette = 5=#b16286
+# palette = 6=#689d6a
+# palette = 7=#a89984
+# palette = 8=#928374
+# palette = 9=#fb4934
+# palette = 10=#b8bb26
+# palette = 11=#fabd2f
+# palette = 12=#83a598
+# palette = 13=#d3869b
+# palette = 14=#8ec07c
+# palette = 15=#d4be98
+#
+# background = #000000
+# foreground = #d4be98
+# cursor-color = #d4be98
+# selection-background = #32302f
+# selection-foreground = #d4be98
+
+
