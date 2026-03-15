@@ -64,7 +64,7 @@ eval "$(zoxide init zsh)"
 alias y="yazi"
 alias pdf="zathura"
 alias v="nvim"
-
+alias lvim="NVIM_APPNAME=nvim-lazyvim nvim"
 
 # ls improvements (if eza is installed)
 if command -v eza &> /dev/null; then
