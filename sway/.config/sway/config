@@ -75,7 +75,12 @@ input type:keyboard {
 #
 # Moving around:
 #
+#
     # Move your focus around
+    bindsym $mod+grave focus right
+    # Focus left con Shift + Grave (~)
+    bindsym $mod+Shift+grave focus left
+
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
@@ -129,7 +134,7 @@ input type:keyboard {
     # We just use 1-10 as the default.
     
     # Toggle between the current workspace and the previously focused one
-    bindsym $mod+grave workspace back_and_forth
+    # bindsym $mod+grave workspace back_and_forth
 
 # Layout stuff:
 #
@@ -214,9 +219,12 @@ bindsym $mod+r mode "resize"
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 
-### Capturas (Wayland nativo con grim+slurp)
-bindsym $mod+s exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+# ### Capturas (Wayland nativo con grim+slurp)
+bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
+
+# Captura de pantalla con Flameshot (GUI)
+# bindsym $mod+s exec flameshot gui
 
 ### Ventanas sin bordes ni título
 for_window [app_id=".*"] border none
