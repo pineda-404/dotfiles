@@ -219,10 +219,16 @@ bindsym $mod+r mode "resize"
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
 
-# ### Capturas (Wayland nativo con grim+slurp)
-bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
-bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
+# # ### Capturas (Wayland nativo con grim+slurp)
+# bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
+# bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
 
+# Captura Efímera (Toma foto instantánea a memoria y abre el editor para recortar/copiar)
+bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f -
+
+# Captura a Archivo (Toma foto instantánea, abres el editor, recortas y al guardar va a Pictures)
+# Nota: En swappy configuras la carpeta de guardado por defecto en ~/.config/swappy/config
+bindsym $mod+Shift+s exec grim - | swappy -f - -o ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
 # Captura de pantalla con Flameshot (GUI)
 # bindsym $mod+s exec flameshot gui
 
