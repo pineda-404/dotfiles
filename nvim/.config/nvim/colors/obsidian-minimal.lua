@@ -155,12 +155,12 @@ hl(0, "Type", { fg = colors.yellow })
 hl(0, "StorageClass", { fg = colors.purple })
 hl(0, "Structure", { fg = colors.purple })
 hl(0, "Typedef", { fg = colors.purple })
-hl(0, "Special", { fg = colors.orange })
-hl(0, "SpecialChar", { fg = colors.orange })
+hl(0, "Special", { fg = colors.fg })
+hl(0, "SpecialChar", { fg = colors.fg })
 hl(0, "Tag", { fg = colors.purple })
 hl(0, "Delimiter", { fg = colors.fg })
 hl(0, "SpecialComment", { fg = colors.comment })
-hl(0, "Debug", { fg = colors.orange })
+hl(0, "Debug", { fg = colors.fg })
 hl(0, "Underlined", { underline = true })
 hl(0, "Bold", { bold = true })
 hl(0, "Italic", { italic = true })
@@ -206,9 +206,9 @@ hl(0, "@decorator", { fg = colors.fg_dark })
 
 hl(0, "@string", { fg = colors.green })
 hl(0, "@string.documentation", { fg = colors.green })
-hl(0, "@string.escape", { fg = colors.orange })
-hl(0, "@string.regex", { fg = colors.orange })
-hl(0, "@string.special", { fg = colors.orange })
+hl(0, "@string.escape", { fg = colors.fg })
+hl(0, "@string.regex", { fg = colors.fg })
+hl(0, "@string.special", { fg = colors.fg })
 hl(0, "@character", { fg = colors.green })
 
 hl(0, "@number", { fg = colors.lilac })
@@ -309,3 +309,15 @@ hl(0, "CmpItemAbbrMatch", { fg = colors.yellow, bold = true })
 hl(0, "CmpItemAbbrMatchFuzzy", { fg = colors.yellow, bold = true })
 hl(0, "CmpItemKind", { fg = colors.purple })
 hl(0, "CmpItemMenu", { fg = colors.comment })
+
+-- Corregir color de directorios en el explorador (quitar Cyan)
+hl(0, "Directory", { fg = colors.blue, bold = true })
+
+-- Soporte específico para Markdown / Tree-sitter Markup (quitar Naranja)
+hl(0, "@markup.raw", { fg = colors.fg }) -- Evita que elementos de texto crudo hereden el naranja de Special
+hl(0, "@markup.raw.block.markdown", { fg = colors.fg }) -- Bloques de código sin lenguaje o lenguaje desconocido
+hl(0, "@markup.raw.markdown_inline", { fg = colors.fg, bg = colors.bg_light }) -- `código inline`
+hl(0, "@markup.link.label.markdown_inline", { fg = colors.blue }) -- Texto de enlaces [enlace]
+hl(0, "@markup.link.url.markdown", { fg = colors.comment, underline = true }) -- URL (http://...)
+hl(0, "@markup.list.markdown", { fg = colors.blue }) -- Puntos de viñetas (-)
+hl(0, "RenderMarkdownCodeInline", { fg = colors.fg, bg = colors.bg_light }) -- Compatibilidad con render-markdown.nvim
