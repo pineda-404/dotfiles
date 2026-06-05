@@ -15,7 +15,7 @@ set $browser microsoft-edge
 set $menu rofi -show drun
 
 ### Fuente
-font pango:JetBrainsMono Nerd Font 10
+font pango:Geist 10
 
 ### Output
 output * bg /home/pineda/Pictures/ParedDePapel/teeth.jpg fill
@@ -221,10 +221,10 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 # # ### Capturas (Wayland nativo con grim+slurp)
 # bindsym $mod+Shift+s exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H-%M-%S).png
-# bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+s exec grim -g "$(slurp)" - | wl-copy
 
 # Captura Efímera (Toma foto instantánea a memoria y abre el editor para recortar/copiar)
-bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f -
+# bindsym $mod+s exec grim -g "$(slurp)" - | swappy -f -
 
 # Captura a Archivo (Toma foto instantánea, abres el editor, recortas y al guardar va a Pictures)
 # Nota: En swappy configuras la carpeta de guardado por defecto en ~/.config/swappy/config

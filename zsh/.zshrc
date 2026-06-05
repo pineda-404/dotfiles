@@ -95,3 +95,7 @@ eval "$(starship init zsh)"
 
 # opencode
 export PATH=/home/pineda/.opencode/bin:$PATH
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/pineda/.local/bin:$PATH"
