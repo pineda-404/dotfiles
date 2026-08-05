@@ -20,6 +20,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- LazyVim extras (deben ir ANTES de los plugins de usuario)
     { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.go" },
     -- plugins de usuario (subdirectorios requieren import explícito)
     { import = "plugins" },
     { import = "plugins.ui" },

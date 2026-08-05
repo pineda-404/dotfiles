@@ -31,24 +31,14 @@ keybind = ctrl+alt+h=goto_split:left
 keybind = ctrl+alt+l=goto_split:right
 
 # --- Configuracion del Theme ---
-# theme = "GitHub-Dark-Default"
-# theme = "gruber darker"
-# theme = "miasma"
-# theme = "GitHub Dark"
 # theme = Kanagawa Wave
 # theme = Kanagawa Dragon 
-
-### Con Ryuuko no se ve una mrd haciendo ls
-# theme = Ryuuko 
 # theme = rose pine
 # theme = Rose Pine Moon
-# theme = SoftServer 
 # theme = Gruvbox Dark Hard
 # theme = Gruvbox Dark 
 # theme = Gruvbox Material Dark 
-# theme = Flexoki Dark
 # theme = Ghostty Default Style Dark
-# theme = Everforest Dark Hard
 #----------------------
 #----------------------
 
