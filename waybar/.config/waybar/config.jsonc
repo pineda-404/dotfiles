@@ -22,7 +22,6 @@
         "cpu",
         "memory",
         "backlight",
-        "sway/language",
         "battery",
         "clock",
         "tray"
