@@ -51,6 +51,7 @@ setopt NO_BEEP              # No beep on error
 # ============================================
 export EDITOR='nvim'
 export VISUAL='nvim'
+export BROWSER='flatpak run app.zen_browser.zen'
 
 # ============================================
 # FZF and Zoxide
@@ -65,6 +66,7 @@ alias y="yazi"
 alias pdf="zathura"
 alias v="nvim"
 alias lvim="NVIM_APPNAME=nvim-lazyvim nvim"
+alias zen="flatpak run app.zen_browser.zen"
 
 # ls improvements (if eza is installed)
 if command -v eza &> /dev/null; then
@@ -94,8 +96,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 eval "$(starship init zsh)"
 
 # opencode
-export PATH=/home/pineda/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
-
-# Added by Antigravity CLI installer
-export PATH="/home/pineda/.local/bin:$PATH"
+# Antigravity CLI
+export PATH="$HOME/.local/bin:$PATH"

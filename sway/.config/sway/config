@@ -11,7 +11,7 @@ set $down j
 set $up k
 set $right l
 set $term ghostty
-set $browser microsoft-edge
+set $browser flatpak run app.zen_browser.zen
 set $menu rofi -show drun
 
 ### Fuente
