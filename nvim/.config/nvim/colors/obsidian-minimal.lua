@@ -192,7 +192,7 @@ hl(0, "@constructor", { fg = colors.yellow })
 
 -- Variables y parámetros en Blanco limpio
 hl(0, "@variable", { fg = colors.fg })
-hl(0, "@variable.builtin", { fg = colors.fg })
+hl(0, "@variable.builtin", { fg = colors.lilac }) -- Variables nativas/exportadas (EOF, nil, iota) en Lila
 hl(0, "@variable.parameter", { fg = colors.fg })
 hl(0, "@parameter", { fg = colors.fg })
 
@@ -265,7 +265,11 @@ hl(0, "@lsp.typemod.type.defaultLibrary", { fg = colors.yellow }) -- float64, st
 hl(0, "@lsp.typemod.type.defaultLibrary.go", { fg = colors.yellow })
 hl(0, "@lsp.typemod.typeParameter.defaultLibrary", { fg = colors.yellow })
 hl(0, "@lsp.typemod.function.defaultLibrary", { fg = colors.yellow }) -- make, len en Amarillo
-hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = colors.lilac }) -- nil, true, false en Lila
+hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = colors.lilac }) -- io.EOF, nil, true, false en Lila
+hl(0, "@lsp.typemod.variable.defaultLibrary.go", { fg = colors.lilac })
+hl(0, "@lsp.typemod.variable.static", { fg = colors.lilac })
+hl(0, "@lsp.typemod.variable.static.go", { fg = colors.lilac })
+hl(0, "@lsp.typemod.variable.constant", { fg = colors.lilac })
 hl(0, "@lsp.typemod.variable.readonly", { fg = colors.lilac }) -- Constantes en Lila
 hl(0, "@lsp.typemod.variable.readonly.go", { fg = colors.lilac })
 hl(0, "@lsp.mod.declaration", {})
