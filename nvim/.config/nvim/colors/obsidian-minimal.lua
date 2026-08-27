@@ -1,5 +1,5 @@
 -- Obsidian Minimal Colorscheme for Neovim
--- Based on Kepano's Minimal theme for Obsidian
+-- Based on Kepano's Minimal theme for Obsidian (harmonized with Ghostty palette)
 -- Place this file in ~/.config/nvim/colors/
 
 vim.cmd("hi clear")
@@ -10,9 +10,9 @@ end
 vim.o.termguicolors = true
 vim.g.colors_name = "obsidian-minimal"
 
--- Color palette from Obsidian Minimal theme.css (exact values)
+-- Color palette from Ghostty & Obsidian Minimal (exact matching values)
 local colors = {
-  -- Base colors - Darker background
+  -- Base colors - Dark background
   bg = "#1a1a1a",
   bg_dark = "#1f1f1f",
   bg_light = "#333333",
@@ -23,16 +23,14 @@ local colors = {
   fg_dark = "#999999",
   fg_gutter = "#595959",
 
-  -- Extended colors from theme.css
+  -- Semantic & Accent colors
   red = "#d04255",
-  orange = "#d5763f",
   yellow = "#e5b567",
   green = "#a8c373",
-  cyan = "#73bbb2",
   blue = "#6c99bb",
   purple = "#b05279", -- Dark pink/rose for keywords
   pink = "#b05279",
-  lilac = "#9e86c8", -- For numbers
+  lilac = "#9e86c8", -- For numbers and constants
 
   -- UI colors
   comment = "#595959",
@@ -43,14 +41,14 @@ local colors = {
 
   -- Git colors
   git_add = "#a8c373",
-  git_change = "#e5b567",
+  git_change = "#e5b567", -- Harmonious yellow for modifications (no orange)
   git_delete = "#d04255",
 
   -- Diagnostic colors
   error = "#d04255",
-  warning = "#d5763f",
+  warning = "#e5b567", -- Warm yellow for warnings (no orange)
   info = "#6c99bb",
-  hint = "#73bbb2",
+  hint = "#6c99bb",
 }
 
 local hl = vim.api.nvim_set_hl
@@ -75,10 +73,10 @@ hl(0, "SpecialKey", { fg = colors.fg_gutter })
 hl(0, "Whitespace", { fg = colors.fg_gutter })
 hl(0, "EndOfBuffer", { fg = colors.bg })
 
--- Search & Selection
+-- Search & Selection (Yellow for active search, no orange)
 hl(0, "Search", { fg = colors.bg, bg = colors.yellow })
-hl(0, "IncSearch", { fg = colors.bg, bg = colors.orange })
-hl(0, "CurSearch", { fg = colors.bg, bg = colors.orange })
+hl(0, "IncSearch", { fg = colors.bg, bg = colors.yellow, bold = true })
+hl(0, "CurSearch", { fg = colors.bg, bg = colors.yellow, bold = true })
 hl(0, "Substitute", { fg = colors.bg, bg = colors.red })
 hl(0, "Visual", { bg = colors.selection })
 hl(0, "VisualNOS", { bg = colors.selection })
@@ -120,7 +118,7 @@ hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = colors.warning })
 hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = colors.info })
 hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = colors.hint })
 
--- Git Signs
+-- Git Signs & Diffs
 hl(0, "DiffAdd", { fg = colors.git_add })
 hl(0, "DiffChange", { fg = colors.git_change })
 hl(0, "DiffDelete", { fg = colors.git_delete })
@@ -180,15 +178,15 @@ hl(0, "@keyword.exception", { fg = colors.purple })
 
 hl(0, "@function", { fg = colors.yellow })
 hl(0, "@function.call", { fg = colors.fg })
-hl(0, "@function.builtin", { fg = colors.pink }) -- print is white, like function calls
+hl(0, "@function.builtin", { fg = colors.pink })
 hl(0, "@function.method", { fg = colors.yellow })
 hl(0, "@function.method.call", { fg = colors.fg })
 hl(0, "@method", { fg = colors.yellow })
 hl(0, "@method.call", { fg = colors.fg })
 
 hl(0, "@type", { fg = colors.yellow })
-hl(0, "@type.builtin", { fg = colors.cyan })
-hl(0, "@type.definition", { fg = colors.yellow })
+hl(0, "@type.builtin", { fg = colors.blue }) -- Primitivas (string, int, byte) en Azul Ghostty
+hl(0, "@type.definition", { fg = colors.yellow }) -- Tipos definidos por usuario en Amarillo
 hl(0, "@class", { fg = colors.yellow })
 hl(0, "@constructor", { fg = colors.yellow })
 
@@ -222,7 +220,7 @@ hl(0, "@comment.documentation", { fg = colors.comment, italic = true })
 hl(0, "@comment.error", { fg = colors.error })
 hl(0, "@comment.warning", { fg = colors.warning })
 hl(0, "@comment.todo", { fg = colors.bg, bg = colors.yellow, bold = true })
-hl(0, "@comment.note", { fg = colors.cyan })
+hl(0, "@comment.note", { fg = colors.blue })
 
 hl(0, "@punctuation", { fg = colors.fg })
 hl(0, "@punctuation.delimiter", { fg = colors.fg })
@@ -231,25 +229,60 @@ hl(0, "@punctuation.special", { fg = colors.fg })
 
 hl(0, "@operator", { fg = colors.red })
 
-hl(0, "@module", { fg = colors.fg })
-hl(0, "@namespace", { fg = colors.fg })
+hl(0, "@module", { fg = colors.blue })
+hl(0, "@namespace", { fg = colors.blue })
 
--- LSP Semantic Tokens
+-- LSP Semantic Tokens (gopls, pyright, etc.)
 hl(0, "@lsp.type.class", { fg = colors.yellow })
 hl(0, "@lsp.type.decorator", { fg = colors.fg_dark })
+hl(0, "@lsp.type.enum", { fg = colors.yellow })
+hl(0, "@lsp.type.enumMember", { fg = colors.lilac })
 hl(0, "@lsp.type.function", { fg = colors.yellow })
+hl(0, "@lsp.type.interface", { fg = colors.yellow })
 hl(0, "@lsp.type.method", { fg = colors.yellow })
+hl(0, "@lsp.type.module", { fg = colors.blue })
+hl(0, "@lsp.type.namespace", { fg = colors.blue }) -- io, fmt, strings, math
 hl(0, "@lsp.type.parameter", { fg = colors.fg })
 hl(0, "@lsp.type.property", { fg = colors.fg })
+hl(0, "@lsp.type.struct", { fg = colors.yellow })
+hl(0, "@lsp.type.type", { fg = colors.yellow })
+hl(0, "@lsp.type.type.builtin", { fg = colors.blue }) -- Tipos base en Go con LSP
+hl(0, "@lsp.type.builtinType", { fg = colors.blue })
 hl(0, "@lsp.type.variable", { fg = colors.fg })
+hl(0, "@lsp.typemod.variable.readonly", { fg = colors.lilac }) -- io.EOF y constantes
+hl(0, "@lsp.typemod.variable.readonly.go", { fg = colors.lilac })
 hl(0, "@lsp.mod.declaration", {})
 hl(0, "@lsp.mod.definition", {})
 
+-- Plugin Support: Neo-tree
+hl(0, "NeoTreeNormal", { fg = colors.fg, bg = colors.bg_dark })
+hl(0, "NeoTreeNormalNC", { fg = colors.fg, bg = colors.bg_dark })
+hl(0, "NeoTreeDirectoryName", { fg = colors.blue, bold = true })
+hl(0, "NeoTreeDirectoryIcon", { fg = colors.blue })
+hl(0, "NeoTreeRootName", { fg = colors.purple, bold = true })
+hl(0, "NeoTreeFileName", { fg = colors.fg })
+hl(0, "NeoTreeGitAdded", { fg = colors.git_add })
+hl(0, "NeoTreeGitModified", { fg = colors.git_change }) -- Amarillo armónico
+hl(0, "NeoTreeGitUntracked", { fg = colors.git_add })
+hl(0, "NeoTreeGitDeleted", { fg = colors.git_delete })
+hl(0, "NeoTreeModified", { fg = colors.git_change })
+
+-- Plugin Support: Bufferline (Tabs)
+hl(0, "BufferLineModified", { fg = colors.git_change })
+hl(0, "BufferLineModifiedVisible", { fg = colors.git_change })
+hl(0, "BufferLineModifiedSelected", { fg = colors.git_change })
+
+-- Plugin Support: Snacks (Picker & Git)
+hl(0, "SnacksPickerDirectory", { fg = colors.blue, bold = true })
+hl(0, "SnacksPickerGitStatusModified", { fg = colors.git_change })
+hl(0, "SnacksPickerGitStatusAdded", { fg = colors.git_add })
+hl(0, "SnacksPickerGitStatusDeleted", { fg = colors.git_delete })
+
 -- Plugin Support: nvim-tree
 hl(0, "NvimTreeNormal", { fg = colors.fg, bg = colors.bg_dark })
-hl(0, "NvimTreeFolderName", { fg = colors.fg })
+hl(0, "NvimTreeFolderName", { fg = colors.blue })
 hl(0, "NvimTreeFolderIcon", { fg = colors.blue })
-hl(0, "NvimTreeOpenedFolderName", { fg = colors.fg, bold = true })
+hl(0, "NvimTreeOpenedFolderName", { fg = colors.blue, bold = true })
 hl(0, "NvimTreeRootFolder", { fg = colors.purple })
 hl(0, "NvimTreeSpecialFile", { fg = colors.yellow })
 hl(0, "NvimTreeIndentMarker", { fg = colors.fg_gutter })
@@ -291,18 +324,18 @@ hl(0, "WhichKeyFloat", { bg = colors.bg_dark })
 hl(0, "LazyH1", { fg = colors.bg, bg = colors.purple, bold = true })
 hl(0, "LazyButton", { fg = colors.fg, bg = colors.bg_light })
 hl(0, "LazyButtonActive", { fg = colors.bg, bg = colors.purple })
-hl(0, "LazySpecial", { fg = colors.cyan })
+hl(0, "LazySpecial", { fg = colors.blue })
 
 -- Plugin Support: Mason
 hl(0, "MasonNormal", { fg = colors.fg, bg = colors.bg_dark })
 hl(0, "MasonHeader", { fg = colors.bg, bg = colors.purple, bold = true })
-hl(0, "MasonHighlight", { fg = colors.cyan })
+hl(0, "MasonHighlight", { fg = colors.blue })
 hl(0, "MasonHighlightBlock", { fg = colors.bg, bg = colors.green })
 hl(0, "MasonHighlightBlockBold", { fg = colors.bg, bg = colors.green, bold = true })
 hl(0, "MasonMuted", { fg = colors.comment })
 hl(0, "MasonMutedBlock", { fg = colors.bg, bg = colors.comment })
 
--- Plugin Support: Cmp
+-- Plugin Support: Cmp & Blink
 hl(0, "CmpItemAbbr", { fg = colors.fg })
 hl(0, "CmpItemAbbrDeprecated", { fg = colors.comment, strikethrough = true })
 hl(0, "CmpItemAbbrMatch", { fg = colors.yellow, bold = true })
@@ -310,14 +343,14 @@ hl(0, "CmpItemAbbrMatchFuzzy", { fg = colors.yellow, bold = true })
 hl(0, "CmpItemKind", { fg = colors.purple })
 hl(0, "CmpItemMenu", { fg = colors.comment })
 
--- Corregir color de directorios en el explorador (quitar Cyan)
+-- Directorios en explorador (Azul Ghostty)
 hl(0, "Directory", { fg = colors.blue, bold = true })
 
--- Soporte específico para Markdown / Tree-sitter Markup (quitar Naranja)
-hl(0, "@markup.raw", { fg = colors.fg }) -- Evita que elementos de texto crudo hereden el naranja de Special
-hl(0, "@markup.raw.block.markdown", { fg = colors.fg }) -- Bloques de código sin lenguaje o lenguaje desconocido
-hl(0, "@markup.raw.markdown_inline", { fg = colors.fg, bg = colors.bg_light }) -- `código inline`
-hl(0, "@markup.link.label.markdown_inline", { fg = colors.blue }) -- Texto de enlaces [enlace]
-hl(0, "@markup.link.url.markdown", { fg = colors.comment, underline = true }) -- URL (http://...)
-hl(0, "@markup.list.markdown", { fg = colors.blue }) -- Puntos de viñetas (-)
-hl(0, "RenderMarkdownCodeInline", { fg = colors.fg, bg = colors.bg_light }) -- Compatibilidad con render-markdown.nvim
+-- Soporte específico para Markdown
+hl(0, "@markup.raw", { fg = colors.fg })
+hl(0, "@markup.raw.block.markdown", { fg = colors.fg })
+hl(0, "@markup.raw.markdown_inline", { fg = colors.fg, bg = colors.bg_light })
+hl(0, "@markup.link.label.markdown_inline", { fg = colors.blue })
+hl(0, "@markup.link.url.markdown", { fg = colors.comment, underline = true })
+hl(0, "@markup.list.markdown", { fg = colors.blue })
+hl(0, "RenderMarkdownCodeInline", { fg = colors.fg, bg = colors.bg_light })
