@@ -185,8 +185,8 @@ hl(0, "@method", { fg = colors.yellow })
 hl(0, "@method.call", { fg = colors.yellow })
 
 hl(0, "@type", { fg = colors.yellow })
-hl(0, "@type.builtin", { fg = colors.yellow }) -- Todos los tipos en Amarillo
-hl(0, "@type.definition", { fg = colors.yellow })
+hl(0, "@type.builtin", { fg = colors.yellow }) -- Tipos base (string, int, etc.) en Amarillo
+hl(0, "@type.definition", { fg = colors.fg }) -- Nombre definido (type Nombre) en Blanco como en Obsidian
 hl(0, "@class", { fg = colors.yellow })
 hl(0, "@constructor", { fg = colors.yellow })
 
@@ -251,6 +251,14 @@ hl(0, "@lsp.type.type", { fg = colors.yellow })
 hl(0, "@lsp.type.type.builtin", { fg = colors.yellow })
 hl(0, "@lsp.type.builtinType", { fg = colors.yellow })
 hl(0, "@lsp.type.variable", { fg = colors.fg })
+hl(0, "@lsp.typemod.type.definition", { fg = colors.fg }) -- Nombre de tipo declarado en Blanco
+hl(0, "@lsp.typemod.type.declaration", { fg = colors.fg })
+hl(0, "@lsp.typemod.struct.definition", { fg = colors.fg })
+hl(0, "@lsp.typemod.struct.declaration", { fg = colors.fg })
+hl(0, "@lsp.typemod.interface.definition", { fg = colors.fg })
+hl(0, "@lsp.typemod.interface.declaration", { fg = colors.fg })
+hl(0, "@lsp.typemod.class.definition", { fg = colors.fg })
+hl(0, "@lsp.typemod.class.declaration", { fg = colors.fg })
 hl(0, "@lsp.typemod.type.defaultLibrary", { fg = colors.yellow }) -- float64, string, error en Amarillo
 hl(0, "@lsp.typemod.type.defaultLibrary.go", { fg = colors.yellow })
 hl(0, "@lsp.typemod.typeParameter.defaultLibrary", { fg = colors.yellow })
