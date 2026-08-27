@@ -1,5 +1,5 @@
 -- Obsidian Minimal Colorscheme for Neovim
--- Based on Kepano's Minimal theme for Obsidian (harmonized with Ghostty palette)
+-- Based on Kepano's Minimal theme for Obsidian (Harmonized with Ghostty)
 -- Place this file in ~/.config/nvim/colors/
 
 vim.cmd("hi clear")
@@ -18,19 +18,19 @@ local colors = {
   bg_light = "#333333",
   bg_highlight = "#404040",
 
-  -- Foreground
+  -- Foreground (Clean White / Light Grey Canvas)
   fg = "#d2d2d2",
   fg_dark = "#999999",
   fg_gutter = "#595959",
 
   -- Semantic & Accent colors
-  red = "#d04255",
-  yellow = "#e5b567",
-  green = "#a8c373",
-  blue = "#6c99bb",
-  purple = "#b05279", -- Dark pink/rose for keywords
+  red = "#d04255",      -- Operadores y errores
+  yellow = "#e5b567",   -- Todos los tipos y funciones
+  green = "#a8c373",    -- Strings y Git Add
+  blue = "#6c99bb",     -- Solo UI (directorios, enlaces markdown)
+  purple = "#b05279",   -- Keywords (type, func, struct, return, if, etc.)
   pink = "#b05279",
-  lilac = "#9e86c8", -- For numbers and constants
+  lilac = "#9e86c8",    -- Números, booleanos y nil
 
   -- UI colors
   comment = "#595959",
@@ -41,12 +41,12 @@ local colors = {
 
   -- Git colors
   git_add = "#a8c373",
-  git_change = "#e5b567", -- Harmonious yellow for modifications (no orange)
+  git_change = "#e5b567", -- Amarillo armónico (sin naranja)
   git_delete = "#d04255",
 
   -- Diagnostic colors
   error = "#d04255",
-  warning = "#e5b567", -- Warm yellow for warnings (no orange)
+  warning = "#e5b567",    -- Amarillo cálido (sin naranja)
   info = "#6c99bb",
   hint = "#6c99bb",
 }
@@ -127,7 +127,7 @@ hl(0, "Added", { fg = colors.git_add })
 hl(0, "Changed", { fg = colors.git_change })
 hl(0, "Removed", { fg = colors.git_delete })
 
--- Syntax Highlighting - Standard groups
+-- Syntax Highlighting - Standard groups (Pure Obsidian Minimal)
 hl(0, "Comment", { fg = colors.comment, italic = true })
 hl(0, "Constant", { fg = colors.lilac })
 hl(0, "String", { fg = colors.green })
@@ -177,19 +177,20 @@ hl(0, "@keyword.import", { fg = colors.purple })
 hl(0, "@keyword.exception", { fg = colors.purple })
 
 hl(0, "@function", { fg = colors.yellow })
-hl(0, "@function.call", { fg = colors.fg })
-hl(0, "@function.builtin", { fg = colors.pink })
+hl(0, "@function.call", { fg = colors.yellow })
+hl(0, "@function.builtin", { fg = colors.yellow })
 hl(0, "@function.method", { fg = colors.yellow })
-hl(0, "@function.method.call", { fg = colors.fg })
+hl(0, "@function.method.call", { fg = colors.yellow })
 hl(0, "@method", { fg = colors.yellow })
-hl(0, "@method.call", { fg = colors.fg })
+hl(0, "@method.call", { fg = colors.yellow })
 
 hl(0, "@type", { fg = colors.yellow })
-hl(0, "@type.builtin", { fg = colors.blue }) -- Primitivas (string, int, byte) en Azul Ghostty
-hl(0, "@type.definition", { fg = colors.yellow }) -- Tipos definidos por usuario en Amarillo
+hl(0, "@type.builtin", { fg = colors.yellow }) -- Todos los tipos en Amarillo
+hl(0, "@type.definition", { fg = colors.yellow })
 hl(0, "@class", { fg = colors.yellow })
 hl(0, "@constructor", { fg = colors.yellow })
 
+-- Variables, parámetros, campos en Blanco limpio
 hl(0, "@variable", { fg = colors.fg })
 hl(0, "@variable.builtin", { fg = colors.fg })
 hl(0, "@variable.parameter", { fg = colors.fg })
@@ -220,7 +221,7 @@ hl(0, "@comment.documentation", { fg = colors.comment, italic = true })
 hl(0, "@comment.error", { fg = colors.error })
 hl(0, "@comment.warning", { fg = colors.warning })
 hl(0, "@comment.todo", { fg = colors.bg, bg = colors.yellow, bold = true })
-hl(0, "@comment.note", { fg = colors.blue })
+hl(0, "@comment.note", { fg = colors.fg_dark })
 
 hl(0, "@punctuation", { fg = colors.fg })
 hl(0, "@punctuation.delimiter", { fg = colors.fg })
@@ -229,8 +230,9 @@ hl(0, "@punctuation.special", { fg = colors.fg })
 
 hl(0, "@operator", { fg = colors.red })
 
-hl(0, "@module", { fg = colors.blue })
-hl(0, "@namespace", { fg = colors.blue })
+-- Paquetes y namespaces en Blanco limpio (fmt, io, strings, errors)
+hl(0, "@module", { fg = colors.fg })
+hl(0, "@namespace", { fg = colors.fg })
 
 -- LSP Semantic Tokens (gopls, pyright, etc.)
 hl(0, "@lsp.type.class", { fg = colors.yellow })
@@ -240,26 +242,26 @@ hl(0, "@lsp.type.enumMember", { fg = colors.lilac })
 hl(0, "@lsp.type.function", { fg = colors.yellow })
 hl(0, "@lsp.type.interface", { fg = colors.yellow })
 hl(0, "@lsp.type.method", { fg = colors.yellow })
-hl(0, "@lsp.type.module", { fg = colors.blue })
-hl(0, "@lsp.type.namespace", { fg = colors.blue }) -- io, fmt, strings, math
+hl(0, "@lsp.type.module", { fg = colors.fg })
+hl(0, "@lsp.type.namespace", { fg = colors.fg }) -- fmt, io, strings en Blanco
 hl(0, "@lsp.type.parameter", { fg = colors.fg })
 hl(0, "@lsp.type.property", { fg = colors.fg })
 hl(0, "@lsp.type.struct", { fg = colors.yellow })
 hl(0, "@lsp.type.type", { fg = colors.yellow })
-hl(0, "@lsp.type.type.builtin", { fg = colors.blue })
-hl(0, "@lsp.type.builtinType", { fg = colors.blue })
+hl(0, "@lsp.type.type.builtin", { fg = colors.yellow })
+hl(0, "@lsp.type.builtinType", { fg = colors.yellow })
 hl(0, "@lsp.type.variable", { fg = colors.fg })
-hl(0, "@lsp.typemod.type.defaultLibrary", { fg = colors.blue }) -- Tipos primitivos de Go (string, float64, error, int, etc.)
-hl(0, "@lsp.typemod.type.defaultLibrary.go", { fg = colors.blue })
-hl(0, "@lsp.typemod.typeParameter.defaultLibrary", { fg = colors.blue })
-hl(0, "@lsp.typemod.function.defaultLibrary", { fg = colors.pink }) -- Funciones built-in (make, len, append, panic)
-hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = colors.lilac }) -- Variables built-in (nil, true, false, iota)
-hl(0, "@lsp.typemod.variable.readonly", { fg = colors.lilac }) -- io.EOF y constantes
+hl(0, "@lsp.typemod.type.defaultLibrary", { fg = colors.yellow }) -- float64, string, error en Amarillo
+hl(0, "@lsp.typemod.type.defaultLibrary.go", { fg = colors.yellow })
+hl(0, "@lsp.typemod.typeParameter.defaultLibrary", { fg = colors.yellow })
+hl(0, "@lsp.typemod.function.defaultLibrary", { fg = colors.yellow }) -- make, len en Amarillo
+hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = colors.lilac }) -- nil, true, false en Lila
+hl(0, "@lsp.typemod.variable.readonly", { fg = colors.lilac }) -- Constantes en Lila
 hl(0, "@lsp.typemod.variable.readonly.go", { fg = colors.lilac })
 hl(0, "@lsp.mod.declaration", {})
 hl(0, "@lsp.mod.definition", {})
 
--- Plugin Support: Neo-tree
+-- Plugin Support: Neo-tree (Azul reservado para directorios en la UI)
 hl(0, "NeoTreeNormal", { fg = colors.fg, bg = colors.bg_dark })
 hl(0, "NeoTreeNormalNC", { fg = colors.fg, bg = colors.bg_dark })
 hl(0, "NeoTreeDirectoryName", { fg = colors.blue, bold = true })
