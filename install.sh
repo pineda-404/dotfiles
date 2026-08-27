@@ -57,6 +57,7 @@ install_packages() {
         fzf
         ripgrep
         zoxide
+        stow
         git
         curl
         wget
@@ -140,22 +141,29 @@ create_symlinks() {
     }
     
     # Zsh
-    link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-    
-    # Configs that go in ~/.config/
-    link_config "$DOTFILES_DIR/nvim" "$CONFIG_DIR/nvim"
-    link_config "$DOTFILES_DIR/ghostty" "$CONFIG_DIR/ghostty"
-    link_config "$DOTFILES_DIR/bat" "$CONFIG_DIR/bat"
-    link_config "$DOTFILES_DIR/i3" "$CONFIG_DIR/i3"
-    link_config "$DOTFILES_DIR/polybar" "$CONFIG_DIR/polybar"
-    link_config "$DOTFILES_DIR/picom" "$CONFIG_DIR/picom"
-    link_config "$DOTFILES_DIR/tmux" "$CONFIG_DIR/tmux"
-    link_config "$DOTFILES_DIR/btop" "$CONFIG_DIR/btop"
+    if [ -f "$DOTFILES_DIR/zsh/.zshrc" ]; then
+        link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+    fi
     
     # Git config (goes in home)
     if [ -f "$DOTFILES_DIR/git/.gitconfig" ]; then
         link_config "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
     fi
+    
+    # Configs with .config/<app> structure
+    [ -d "$DOTFILES_DIR/nvim/.config/nvim" ] && link_config "$DOTFILES_DIR/nvim/.config/nvim" "$CONFIG_DIR/nvim"
+    [ -d "$DOTFILES_DIR/ghostty/.config/ghostty" ] && link_config "$DOTFILES_DIR/ghostty/.config/ghostty" "$CONFIG_DIR/ghostty"
+    [ -d "$DOTFILES_DIR/bat/.config/bat" ] && link_config "$DOTFILES_DIR/bat/.config/bat" "$CONFIG_DIR/bat"
+    [ -d "$DOTFILES_DIR/btop/.config/btop" ] && link_config "$DOTFILES_DIR/btop/.config/btop" "$CONFIG_DIR/btop"
+    [ -d "$DOTFILES_DIR/tmux/.config/tmux" ] && link_config "$DOTFILES_DIR/tmux/.config/tmux" "$CONFIG_DIR/tmux"
+    [ -f "$DOTFILES_DIR/starship/.config/starship.toml" ] && link_config "$DOTFILES_DIR/starship/.config/starship.toml" "$CONFIG_DIR/starship.toml"
+    [ -d "$DOTFILES_DIR/sway/.config/sway" ] && link_config "$DOTFILES_DIR/sway/.config/sway" "$CONFIG_DIR/sway"
+    [ -d "$DOTFILES_DIR/waybar/.config/waybar" ] && link_config "$DOTFILES_DIR/waybar/.config/waybar" "$CONFIG_DIR/waybar"
+    
+    # Flat configs (direct folder in dotfiles)
+    [ -d "$DOTFILES_DIR/i3" ] && link_config "$DOTFILES_DIR/i3" "$CONFIG_DIR/i3"
+    [ -d "$DOTFILES_DIR/polybar" ] && link_config "$DOTFILES_DIR/polybar" "$CONFIG_DIR/polybar"
+    [ -d "$DOTFILES_DIR/picom" ] && link_config "$DOTFILES_DIR/picom" "$CONFIG_DIR/picom"
     
     print_success "All symlinks created"
 }

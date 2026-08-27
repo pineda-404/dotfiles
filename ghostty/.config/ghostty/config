@@ -41,6 +41,8 @@ keybind = ctrl+shift+r=new_split:right
 # --- Para navegar entre splits usando Alt + H, J, K, L (estilo Vim) ---
 keybind = ctrl+alt+h=goto_split:left
 keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
 
 
 # =======================================================================

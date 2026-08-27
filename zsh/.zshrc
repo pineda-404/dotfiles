@@ -56,7 +56,10 @@ export BROWSER='flatpak run app.zen_browser.zen'
 # ============================================
 # FZF and Zoxide
 # ============================================
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null || cat {} 2>/dev/null'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} 2>/dev/null | head -100'"
 eval "$(zoxide init zsh)"
 
 # ============================================

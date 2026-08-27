@@ -1,7 +1,6 @@
 -- Tema local obsidian-minimal (no es un plugin de GitHub)
--- El archivo del tema está en: ~/.config/nvim-lazyvim/colors/obsidian-minimal.lua
--- Usamos dofile() con ruta absoluta porque vim.cmd.colorscheme() falla
--- durante el arranque de lazy.nvim antes de que el rtp esté completamente estable
+-- El archivo del tema está en: colors/obsidian-minimal.lua
+-- Usamos dofile() porque es un tema local dentro de stdpath("config")
 return {
   {
     "LazyVim/LazyVim",
