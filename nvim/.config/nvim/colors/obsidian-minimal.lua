@@ -190,14 +190,16 @@ hl(0, "@type.definition", { fg = colors.fg }) -- Nombre definido (type Nombre) e
 hl(0, "@class", { fg = colors.yellow })
 hl(0, "@constructor", { fg = colors.yellow })
 
--- Variables, parámetros, campos en Blanco limpio
+-- Variables y parámetros en Blanco limpio
 hl(0, "@variable", { fg = colors.fg })
 hl(0, "@variable.builtin", { fg = colors.fg })
 hl(0, "@variable.parameter", { fg = colors.fg })
-hl(0, "@variable.member", { fg = colors.fg })
 hl(0, "@parameter", { fg = colors.fg })
-hl(0, "@field", { fg = colors.fg })
-hl(0, "@property", { fg = colors.fg })
+
+-- Miembros, campos y propiedades en Lila (io.EOF, math.Pi, s.State)
+hl(0, "@variable.member", { fg = colors.lilac })
+hl(0, "@field", { fg = colors.lilac })
+hl(0, "@property", { fg = colors.lilac })
 
 hl(0, "@attribute", { fg = colors.fg_dark })
 hl(0, "@attribute.builtin", { fg = colors.fg_dark })
@@ -245,7 +247,7 @@ hl(0, "@lsp.type.method", { fg = colors.yellow })
 hl(0, "@lsp.type.module", { fg = colors.fg })
 hl(0, "@lsp.type.namespace", { fg = colors.fg }) -- fmt, io, strings en Blanco
 hl(0, "@lsp.type.parameter", { fg = colors.fg })
-hl(0, "@lsp.type.property", { fg = colors.fg })
+hl(0, "@lsp.type.property", { fg = colors.lilac }) -- Propiedades en Lila
 hl(0, "@lsp.type.struct", { fg = colors.yellow })
 hl(0, "@lsp.type.type", { fg = colors.yellow })
 hl(0, "@lsp.type.type.builtin", { fg = colors.yellow })
