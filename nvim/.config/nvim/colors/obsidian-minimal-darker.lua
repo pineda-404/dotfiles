@@ -1,5 +1,5 @@
--- Obsidian Minimal Colorscheme for Neovim
--- Based on Kepano's Minimal theme for Obsidian (Harmonized with Ghostty)
+-- Obsidian Minimal Darker Colorscheme for Neovim
+-- True Black / Deep Dark variant based on Kepano's Minimal for Obsidian
 -- Place this file in ~/.config/nvim/colors/
 
 vim.cmd("hi clear")
@@ -8,20 +8,20 @@ if vim.fn.exists("syntax_on") then
 end
 
 vim.o.termguicolors = true
-vim.g.colors_name = "obsidian-minimal"
+vim.g.colors_name = "obsidian-minimal-darker"
 
--- Color palette from Ghostty & Obsidian Minimal (exact matching values)
+-- Color palette with Deeper Black background
 local colors = {
-  -- Base colors - Dark background
-  bg = "#1a1a1a",
-  bg_dark = "#1f1f1f",
-  bg_light = "#333333",
-  bg_highlight = "#404040",
+  -- Base colors - Deep Pitch Dark background (#0d0d0d)
+  bg = "#0d0d0d",
+  bg_dark = "#050505",
+  bg_light = "#1f1f1f",
+  bg_highlight = "#282828",
 
   -- Foreground (Clean White / Light Grey Canvas)
   fg = "#d2d2d2",
   fg_dark = "#999999",
-  fg_gutter = "#595959",
+  fg_gutter = "#454545",
 
   -- Semantic & Accent colors
   red = "#d04255",      -- Operadores y errores
@@ -30,14 +30,14 @@ local colors = {
   blue = "#6c99bb",     -- Solo UI (directorios, enlaces markdown)
   purple = "#b05279",   -- Keywords (type, func, struct, return, if, etc.)
   pink = "#b05279",
-  lilac = "#9e86c8",    -- Números, booleanos y nil
+  lilac = "#9e86c8",    -- Números, booleanos, constantes y propiedades
 
   -- UI colors
   comment = "#595959",
-  selection = "#404040",
-  line_nr = "#595959",
-  cursor_line = "#2d2d2d",
-  divider = "#333333",
+  selection = "#282828",
+  line_nr = "#454545",
+  cursor_line = "#181818",
+  divider = "#1f1f1f",
 
   -- Git colors
   git_add = "#a8c373",
@@ -186,7 +186,7 @@ hl(0, "@method.call", { fg = colors.yellow })
 
 hl(0, "@type", { fg = colors.yellow })
 hl(0, "@type.builtin", { fg = colors.yellow }) -- Tipos base (string, int, etc.) en Amarillo
-hl(0, "@type.definition", { fg = colors.fg }) -- Nombre definido (type Nombre) en Blanco como en Obsidian
+hl(0, "@type.definition", { fg = colors.fg }) -- Nombre definido (type Nombre) en Blanco
 hl(0, "@class", { fg = colors.yellow })
 hl(0, "@constructor", { fg = colors.yellow })
 
@@ -365,20 +365,20 @@ hl(0, "CmpItemMenu", { fg = colors.comment })
 -- Directorios en explorador (Azul Ghostty)
 hl(0, "Directory", { fg = colors.blue, bold = true })
 
--- Soporte específico para Markdown (Opción 2: Sin recuadro, texto en Lila #9e86c8)
-hl(0, "@markup.raw", { fg = colors.lilac })
-hl(0, "@markup.raw.block.markdown", { fg = colors.fg, bg = "#141414" })
-hl(0, "@markup.raw.markdown_inline", { fg = colors.lilac })
+-- Soporte específico para Markdown (Opción 2: Sin recuadro, texto en Fucsia/Rosa #b05279)
+hl(0, "@markup.raw", { fg = colors.pink })
+hl(0, "@markup.raw.block.markdown", { fg = colors.fg, bg = "#070707" })
+hl(0, "@markup.raw.markdown_inline", { fg = colors.pink })
 hl(0, "@markup.link.label.markdown_inline", { fg = colors.blue })
 hl(0, "@markup.link.url.markdown", { fg = colors.comment, underline = true })
 hl(0, "@markup.list.markdown", { fg = colors.blue })
-hl(0, "RenderMarkdownCodeInline", { fg = colors.lilac })
+hl(0, "RenderMarkdownCodeInline", { fg = colors.pink })
 
 -- Bloques de código Markdown (Fondo sutil y armónico con el tema)
-hl(0, "RenderMarkdownCode", { bg = "#141414" })
-hl(0, "RenderMarkdownCodeFallback", { fg = colors.fg, bg = "#141414" })
-hl(0, "RenderMarkdownCodeInfo", { fg = colors.fg, bg = "#141414" })
-hl(0, "RenderMarkdownCodeBorder", { bg = "#141414" })
+hl(0, "RenderMarkdownCode", { bg = "#070707" })
+hl(0, "RenderMarkdownCodeFallback", { fg = colors.fg, bg = "#070707" })
+hl(0, "RenderMarkdownCodeInfo", { fg = colors.fg, bg = "#070707" })
+hl(0, "RenderMarkdownCodeBorder", { bg = "#070707" })
 
 -- Encabezados Markdown con colores diferenciados por nivel (H1 Amarillo, H2 Verde, etc.)
 hl(0, "@markup.heading", { fg = colors.yellow, bold = true })
