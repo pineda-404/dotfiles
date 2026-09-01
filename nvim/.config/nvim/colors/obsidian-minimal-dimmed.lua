@@ -1,7 +1,6 @@
--- Obsidian Minimal Colorscheme for Neovim
--- Basado en Minimal de Kepano para Obsidian con fondo Dark Elevation (#151515)
--- Más oscuro que la versión Dimmed (#1a1a1a), pero sin llegar al negro puro de Darker (#0d0d0d)
--- Archivo: ~/.config/nvim/colors/obsidian-minimal.lua
+-- Obsidian Minimal Dimmed Colorscheme for Neovim
+-- Variante con fondo gris carbón original (#1a1a1a) de Obsidian Minimal
+-- Archivo: ~/.config/nvim/colors/obsidian-minimal-dimmed.lua
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
@@ -9,20 +8,20 @@ if vim.fn.exists("syntax_on") then
 end
 
 vim.o.termguicolors = true
-vim.g.colors_name = "obsidian-minimal"
+vim.g.colors_name = "obsidian-minimal-dimmed"
 
--- Paleta armónica con superficies de Shannon (#151515) y sintaxis de Obsidian
+-- Color palette from Ghostty & Obsidian Minimal (exact matching values)
 local colors = {
-  -- Base colors - Shannon background (#151515)
-  bg = "#151515",
-  bg_dark = "#101010",
-  bg_light = "#1b1b1a",
-  bg_highlight = "#282828",
+  -- Base colors - Dark background
+  bg = "#1a1a1a",
+  bg_dark = "#1f1f1f",
+  bg_light = "#333333",
+  bg_highlight = "#404040",
 
   -- Foreground (Clean White / Light Grey Canvas)
   fg = "#d2d2d2",
   fg_dark = "#999999",
-  fg_gutter = "#4a4a4a",
+  fg_gutter = "#595959",
 
   -- Semantic & Accent colors
   red = "#d04255",      -- Operadores y errores
@@ -35,10 +34,10 @@ local colors = {
 
   -- UI colors
   comment = "#595959",
-  selection = "#2d2d2d",
-  line_nr = "#4a4a4a",
-  cursor_line = "#1e1e1e",
-  divider = "#2d2d2d",
+  selection = "#404040",
+  line_nr = "#595959",
+  cursor_line = "#2d2d2d",
+  divider = "#333333",
 
   -- Git colors
   git_add = "#a8c373",
@@ -57,7 +56,7 @@ local hl = vim.api.nvim_set_hl
 -- Editor UI
 hl(0, "Normal", { fg = colors.fg, bg = colors.bg })
 hl(0, "NormalFloat", { fg = colors.fg, bg = colors.bg_dark })
-hl(0, "FloatBorder", { fg = colors.divider, bg = colors.bg_dark })
+hl(0, "FloatBorder", { fg = colors.fg_gutter, bg = colors.bg_dark })
 hl(0, "Cursor", { fg = colors.bg, bg = colors.fg })
 hl(0, "CursorLine", { bg = colors.cursor_line })
 hl(0, "CursorColumn", { bg = colors.cursor_line })
@@ -65,13 +64,13 @@ hl(0, "ColorColumn", { bg = colors.bg_light })
 hl(0, "LineNr", { fg = colors.line_nr })
 hl(0, "CursorLineNr", { fg = colors.yellow, bold = true })
 hl(0, "SignColumn", { fg = colors.fg_gutter, bg = colors.bg })
-hl(0, "VertSplit", { fg = colors.divider })
-hl(0, "WinSeparator", { fg = colors.divider })
+hl(0, "VertSplit", { fg = colors.bg_highlight })
+hl(0, "WinSeparator", { fg = colors.bg_highlight })
 hl(0, "Folded", { fg = colors.comment, bg = colors.bg_light })
 hl(0, "FoldColumn", { fg = colors.comment })
 hl(0, "NonText", { fg = colors.fg_gutter })
 hl(0, "SpecialKey", { fg = colors.fg_gutter })
-hl(0, "Whitespace", { fg = colors.divider })
+hl(0, "Whitespace", { fg = colors.fg_gutter })
 hl(0, "EndOfBuffer", { fg = colors.bg })
 
 -- Search & Selection (Yellow for active search, no orange)
@@ -312,9 +311,9 @@ hl(0, "NvimTreeGitDeleted", { fg = colors.git_delete })
 
 -- Plugin Support: Telescope
 hl(0, "TelescopeNormal", { fg = colors.fg, bg = colors.bg_dark })
-hl(0, "TelescopeBorder", { fg = colors.divider, bg = colors.bg_dark })
+hl(0, "TelescopeBorder", { fg = colors.fg_gutter, bg = colors.bg_dark })
 hl(0, "TelescopePromptNormal", { fg = colors.fg, bg = colors.bg_dark })
-hl(0, "TelescopePromptBorder", { fg = colors.divider, bg = colors.bg_dark })
+hl(0, "TelescopePromptBorder", { fg = colors.fg_gutter, bg = colors.bg_dark })
 hl(0, "TelescopePromptTitle", { fg = colors.bg, bg = colors.purple })
 hl(0, "TelescopePreviewTitle", { fg = colors.bg, bg = colors.green })
 hl(0, "TelescopeResultsTitle", { fg = colors.bg, bg = colors.blue })
@@ -368,18 +367,18 @@ hl(0, "Directory", { fg = colors.blue, bold = true })
 
 -- Soporte específico para Markdown (Opción 2: Sin recuadro, texto en Lila #9e86c8)
 hl(0, "@markup.raw", { fg = colors.lilac })
-hl(0, "@markup.raw.block.markdown", { fg = colors.fg, bg = "#1b1b1a" })
+hl(0, "@markup.raw.block.markdown", { fg = colors.fg, bg = "#141414" })
 hl(0, "@markup.raw.markdown_inline", { fg = colors.lilac })
 hl(0, "@markup.link.label.markdown_inline", { fg = colors.blue })
 hl(0, "@markup.link.url.markdown", { fg = colors.comment, underline = true })
 hl(0, "@markup.list.markdown", { fg = colors.blue })
 hl(0, "RenderMarkdownCodeInline", { fg = colors.lilac })
 
--- Bloques de código Markdown (Fondo #1b1b1a armónico con Shannon)
-hl(0, "RenderMarkdownCode", { bg = "#1b1b1a" })
-hl(0, "RenderMarkdownCodeFallback", { fg = colors.fg, bg = "#1b1b1a" })
-hl(0, "RenderMarkdownCodeInfo", { fg = colors.fg, bg = "#1b1b1a" })
-hl(0, "RenderMarkdownCodeBorder", { bg = "#1b1b1a" })
+-- Bloques de código Markdown (Fondo sutil y armónico con el tema)
+hl(0, "RenderMarkdownCode", { bg = "#141414" })
+hl(0, "RenderMarkdownCodeFallback", { fg = colors.fg, bg = "#141414" })
+hl(0, "RenderMarkdownCodeInfo", { fg = colors.fg, bg = "#141414" })
+hl(0, "RenderMarkdownCodeBorder", { bg = "#141414" })
 
 -- Encabezados Markdown con colores diferenciados por nivel (H1 Amarillo, H2 Verde, etc.)
 hl(0, "@markup.heading", { fg = colors.yellow, bold = true })
