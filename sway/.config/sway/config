@@ -26,13 +26,18 @@ output * bg /home/pineda/Pictures/ParedDePapel/teeth.jpg fill
 # Esta linea iba antes cuando no tenia PAM(lo que maneja las contrase~nas en linux)
 # exec --no-startup-id "/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 
-### Teclado (tildes, ñ con Compose)
+### Teclado (tildes, ñ con Compose y Bloq Mayús como Control)
 input type:keyboard {
     xkb_layout us
-    xkb_options compose:rctrl
+    xkb_options compose:rctrl,ctrl:nocaps
 }
 
-### Input configuration
+### Input configuration (Touchpad)
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+}
+
 #
 # Example configuration:
 #
