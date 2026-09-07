@@ -1,0 +1,47 @@
+# Shannon Claude Theme for Ghostty
+# Propuesta B: Claude UI Mate (Tonos suaves de baja saturación de la UI de Claude)
+# Completa los slots con Azul Pizarra, Lavanda y Sage Teal mate.
+
+# Background and foreground
+background = #151515
+foreground = #f0efec
+
+# Cursor
+cursor-color = #f0efec
+
+# Selection
+selection-background = #2d2d2d
+selection-foreground = #f0efec
+
+# ANSI Colors (0-7: normal, 8-15: bright)
+# 0: Black / Background
+palette = 0=#151515
+palette = 8=#4a4a4a
+
+# 1: Red / Coral
+palette = 1=#bf5f62
+palette = 9=#bf5f62
+
+# 2: Green
+palette = 2=#87b38d
+palette = 10=#87b38d
+
+# 3: Yellow
+palette = 3=#e0a96d
+palette = 11=#e0a96d
+
+# 4: Blue (Azul pizarra suave para carpetas y ramas de git)
+palette = 4=#7ea2cc
+palette = 12=#9ab8dc
+
+# 5: Magenta (Lavanda suave para constantes y números)
+palette = 5=#b39ddb
+palette = 13=#c7b5e6
+
+# 6: Cyan (Sage teal / verde azulado mate para symlinks y variables)
+palette = 6=#7bb8a8
+palette = 14=#96cbbe
+
+# 7: White / Foreground
+palette = 7=#f0efec
+palette = 15=#ffffff

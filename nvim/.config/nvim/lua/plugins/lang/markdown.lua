@@ -4,6 +4,10 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
-    opts = {},
+    opts = {
+      heading = {
+        backgrounds = {}, -- Elimina la barra horizontal de fondo en H1, H2, etc. (Estilo limpio Obsidian)
+      },
+    },
   },
 }
