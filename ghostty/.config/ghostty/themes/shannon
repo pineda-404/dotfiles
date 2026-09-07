@@ -1,0 +1,47 @@
+# Shannon Strict Theme for Ghostty
+# Propuesta A: Triada Monocromática Estricta (Cero colores nuevos)
+# Reutiliza estrictamente la paleta de shannon-md: Fondo #151515, Amarillo, Verde, Coral y Blanco hueso.
+
+# Background and foreground
+background = #151515
+foreground = #f0efec
+
+# Cursor
+cursor-color = #f0efec
+
+# Selection
+selection-background = #2d2d2d
+selection-foreground = #f0efec
+
+# ANSI Colors (0-7: normal, 8-15: bright)
+# 0: Black / Background
+palette = 0=#151515
+palette = 8=#4a4a4a
+
+# 1: Red / Coral
+palette = 1=#bf5f62
+palette = 9=#bf5f62
+
+# 2: Green
+palette = 2=#87b38d
+palette = 10=#87b38d
+
+# 3: Yellow
+palette = 3=#e0a96d
+palette = 11=#e0a96d
+
+# 4: Blue (Mapeado a Amarillo para carpetas coherentes con Neovim)
+palette = 4=#e0a96d
+palette = 12=#e0a96d
+
+# 5: Magenta (Mapeado a Coral)
+palette = 5=#bf5f62
+palette = 13=#bf5f62
+
+# 6: Cyan (Mapeado a Verde)
+palette = 6=#87b38d
+palette = 14=#87b38d
+
+# 7: White / Foreground
+palette = 7=#f0efec
+palette = 15=#ffffff

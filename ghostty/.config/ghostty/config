@@ -58,31 +58,33 @@ keybind = ctrl+alt+k=goto_split:up
 # theme = Gruvbox Material Dark
 # theme = Ghostty Default Style Dark
 # theme = Carbonfox
-
+ theme = obsidian-minimal
+ # theme = shannon-claude 
+ # theme = shannon
 
 ## Obsidian Minimal (custom theme - based on Kepano's Minimal for Obsidian)
-palette = 1=#d04255
-palette = 2=#a8c373
-palette = 3=#e5b567
-palette = 4=#6c99bb
-palette = 5=#b05279
-palette = 6=#9e86c8
-palette = 7=#d2d2d2
-palette = 8=#595959
-palette = 9=#d04255
-palette = 10=#a8c373
-palette = 11=#e5b567
-palette = 12=#6c99bb
-palette = 13=#9e86c8
-palette = 14=#73bbb2
-palette = 15=#ffffff
-
-# background = #1a1a1a
-background = #0d0d0d
-foreground = #d2d2d2
-cursor-color = #d2d2d2
-selection-background = #404040
-selection-foreground = #d2d2d2
+# palette = 1=#d04255
+# palette = 2=#a8c373
+# palette = 3=#e5b567
+# palette = 4=#6c99bb
+# palette = 5=#b05279
+# palette = 6=#9e86c8
+# palette = 7=#d2d2d2
+# palette = 8=#595959
+# palette = 9=#d04255
+# palette = 10=#a8c373
+# palette = 11=#e5b567
+# palette = 12=#6c99bb
+# palette = 13=#9e86c8
+# palette = 14=#73bbb2
+# palette = 15=#ffffff
+#
+# # background = #1a1a1a
+# background = #0d0d0d
+# foreground = #d2d2d2
+# cursor-color = #d2d2d2
+# selection-background = #404040
+# selection-foreground = #d2d2d2
 
 
 ## Gruvbox Dark Hard con fondo negro
